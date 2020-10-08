@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        set<char>myset;
+        if(s.length()==1)
+            return 1;
+        int max=0;
+        for(int i=0,j=0;i<s.length()&&j<s.length();)
+        {
+                    if(myset.find(s[j])!=myset.end())
+                    {
+                        if(max<myset.size())
+                            max=myset.size();
+                        myset.clear();
+                        i=j;
+                        
+                    }
+                    myset.insert(s[j]);
+                    j++;
+               
+            
+        }
+        
+       
+        return max;
+    }
+};
